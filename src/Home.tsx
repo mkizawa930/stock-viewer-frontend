@@ -1,4 +1,4 @@
-import CandlestickChart from "./features/candlestick/components/CandlestickChart";
+import CandlestickChart from "./features/charts/components/CandlestickChartView";
 
 export default function Home() {
   return (

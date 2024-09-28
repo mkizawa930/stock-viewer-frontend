@@ -1,9 +1,12 @@
-import CandlestickChart from "../features/candlestick/components/CandlestickChart";
+import { useState } from "react";
+import CandlestickChartView from "../features/charts/components/CandlestickChartView";
 
 export default function HomePage() {
+  const [symbol, setSymbol] = useState<string>("^IXIC");
+
   return (
     <div className="h-full">
-      <CandlestickChart />
+      <CandlestickChartView />
     </div>
   );
 }

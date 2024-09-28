@@ -1,5 +1,9 @@
 export const INDICATORS = ["SMA", "EMA"];
 
+export const periods = ["1mo", "3mo", "6mo"] as const;
+
+export type Period = (typeof periods)[number];
+
 export type OHLCV = {
   timestamp: Date;
   open: number;

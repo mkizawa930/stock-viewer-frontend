@@ -1,10 +1,15 @@
 import { ChangeEventHandler, FormEvent, useState } from "react";
-import { getUrl } from "../../api/function";
+import { MdClose } from "react-icons/md";
 
+/**
+ * 株価検索用の入力フォーム
+ * @param onSearch 検索時のアクション
+ * @returns 
+ */
 export default function SearchInputForm({
   onSearch,
 }: {
-  onSearch: (data: any) => void;
+  onSearch: (text: string) => void;
 }) {
   const [queryText, setQueryText] = useState<string>("");
 
@@ -19,19 +24,34 @@ export default function SearchInputForm({
       // TODO: error
       return;
     }
-    const url = getUrl("/search");
-    const query = new URLSearchParams();
-    query.append("query", queryText);
-    const response = await fetch(`${url}?${query.toString()}`);
-    const data = await response.json();
+    console.log("clicked");
+    onSearch(queryText);
+  };
 
-    onSearch(data);
+  const onClickClearButton = () => {
+    setQueryText("");
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" value={queryText} onChange={handleChange} />
-      <button>検索</button>
+    <form className="flex" onSubmit={onSubmit}>
+      <div className="flex-1 flex items-center border border-slate-300 rounded-xl px-2">
+        <input
+          className="flex-1 p-2 outline-none"
+          type="text"
+          value={queryText}
+          onChange={handleChange}
+        />
+        <button
+          className="rounded-full text-black disabled:text-slate-300"
+          disabled={queryText === null || queryText === ""}
+          onClick={onClickClearButton}
+        >
+          <MdClose size={24} />
+        </button>
+      </div>
+      <button className="bg-sky-500 border text-white px-4 py-1 rounded-xl ml-4">
+        検索
+      </button>
     </form>
   );
 }
