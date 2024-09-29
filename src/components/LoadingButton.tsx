@@ -25,7 +25,7 @@ export default function LoadingButton({ text, onClick, className }: Props) {
   return (
     <button
       className={[
-        "border rounded-lg text-black px-2.5 py-1.5 min-w-16 minh-4",
+        "rounded-lg text-black px-2.5 py-1.5 min-w-16",
         "inline-flex justify-center items-center",
         className,
       ].join(" ")}
