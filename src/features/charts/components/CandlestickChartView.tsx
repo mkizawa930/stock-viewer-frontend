@@ -76,7 +76,6 @@ export default function CandlestickChartView() {
 
   return (
     <div className="flex flex-col h-full px-6">
-      <div className="text-lg font-bold">Chart</div>
       <div>
         {/* 選択メニュー 期間 間隔 銘柄 */}
         <div className="inline-flex space-x-2 py-4">
