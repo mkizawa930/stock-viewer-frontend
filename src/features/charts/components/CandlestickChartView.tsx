@@ -115,7 +115,7 @@ export default function CandlestickChartView() {
             onChange={handleChangeSearchParam}
             value={form["symbol"]}
           />
-          <LoadingButton className="border bg-blue-500 text-white" text={"取得"} />
+          <LoadingButton className="bg-blue-500 text-white" text={"取得"} />
         </div>
       </div>
       {/* <ChartOptions /> */}
